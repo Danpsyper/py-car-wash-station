@@ -4,8 +4,11 @@ from typing import List
 class Car:
 
     def __init__(
-            self, comfort_class: int, 
-            clean_mark: int, brand: str) -> None:
+        self,
+        comfort_class: int,
+        clean_mark: int,
+        brand: str,
+    ) -> None:
         self.comfort_class = comfort_class
         self.clean_mark = clean_mark
         self.brand = brand
@@ -29,8 +32,10 @@ class CarWashStation:
         diff = self.clean_power - car.clean_mark
         if diff <= 0:
             return 0.0
-        price = car.comfort_class * diff * (
-            self.average_rating / self.distance_from_city_center
+        price = (
+            car.comfort_class
+            * diff
+            * (self.average_rating / self.distance_from_city_center)
         )
         return round(price, 1)
 
